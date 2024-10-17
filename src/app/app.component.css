@@ -1,0 +1,136 @@
+html{
+    /* background-color: black; */
+    min-height: 98vh;
+    width: 98vw;
+}
+ body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+ h1 {
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 6vw;
+    text-align: center;
+ }
+ .search-bar{
+     font-size: 4vw;
+     display: flex;
+     justify-content: center;
+ }
+ .search {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+ }
+ .search input{
+    margin-bottom: 5px;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-width: 30vw;
+    font-size: 15px;
+ }
+
+ .search button {
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: black;
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+  }
+  
+.search button:hover {
+    background-color: #048134;
+}
+.gameCount{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.games_card_display{
+    margin-top: 10px;
+    padding: 10px;
+    width: 90%;
+    min-height: 200px;
+    background-color: rgb(185, 183, 182);
+    display: block;
+    border-radius: 20px;
+}
+.games_show_area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.game_title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+    align-items: left;
+    font-size: 2.5vw;
+    font-weight: 900;
+    padding: 10px;
+}
+.game_image_and_detailes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.gameCoverImage{
+    max-width: 200px;
+    height: 200px;
+    margin-right: 20px;
+    object-fit:fill;
+}
+
+.detailes_container{
+    /* background-color: cornflowerblue; */
+    width: 95%;
+    height: 20%;
+    text-align: center;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* border-top: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+
+.brief_summary_container{
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid black; 
+}
+.brief_summary_container span{
+    font-weight: 700;
+    font-size: 2vw;
+}

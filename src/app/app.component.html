@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+  <h1>Game Explorer</h1>
+
+  <div class="search-bar">
+    <div class="search">
+      <input type="text" placeholder="Type Game Name To Search" #gameSearch
+        (keyup.enter)="searchGames(gameSearch.value,gameSearchLimit.value)">
+      <input type="number" placeholder="Search Results Limit" #gameSearchLimit [min]="1" [max]="500"
+        (keyup.enter)="searchGames(gameSearch.value,gameSearchLimit.value)">
+      <button (click)="searchGames(gameSearch.value,gameSearchLimit.value)" class="search-button">Search Games</button>
+    </div>
+  </div>
+  <div class="game-floating-strip">
+  </div>
+
+  <!-- Desired game card
+  <div class="games_card_display">
+    <div class="games_show_area">
+      <div class="game_title">
+        <span class="game_title_text">Title of the game comes here 2024</span>
+      </div>
+      <div class="game_image_and_detailes">
+        <div class="image_container">
+          <img class="gameCoverImage" src="//images.igdb.com/igdb/image/upload/t_thumb/co6qqa.jpg" alt="">
+        </div>
+        <div class="game_details_to_show">
+          <div class="brief_summary_container">
+            <span>Brief Description</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis iste quisquam officia neque
+              saepe, ratione error ipsam suscipit, at aspernatur, possimus quos amet unde modi accusamus repellendus
+              molestias consectetur.</p>
+          </div>
+          <div class="detailes_container">
+            <span class="genre">Genre Comes Here</span>
+            <span class="platform">Platform: PC</span>
+            <span class="released">Released: 2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <span class="gameCount">{{gamesList.length}} games found from searching
+    "{{gameSearch.value}}"</span> -->
+  
+    <span class="gameCount" *ngIf="gamesList.length > 0">{{gamesList.length}} games found from searching for games with
+    title
+    "{{gameSearch.value}}"</span>
+    <span class="gameCount" *ngIf="noResultsToShow">No games found from searching for games with title "{{gameSearch.value}}"</span>
+
+  <div class="games_card_display" *ngFor="let item of gamesList; let i = index">
+    <div class="games_show_area" *ngFor="let val of gamesList[i] | keyvalue">
+
+      <div class="game_title" *ngIf="'title' == val.key.valueOf()">
+        <p class="game_title_text">{{ val.value }}</p>
+      </div>
+      <div class="game_image_and_detailes">
+        <div class="image_container" *ngIf="'cover_url' == val.key.valueOf()">
+          <img class="gameCoverImage" src="{{val.value}}" alt="Loading image">
+        </div>
+        <div class="game_details_to_show">
+          <div class="brief_summary_container"
+            *ngIf="'summary' == val.key.valueOf() && val.value.valueOf() != undefined">
+            <span>Brief Description</span>
+            <p>{{gamesList[i][val.key]}}</p>
+          </div>
+          <div class="detailes_container">
+            <span class="genre" *ngIf="'genreString' == val.key.valueOf() && val.value.valueOf() != undefined">Genre:
+              {{val.value}}</span>
+            <span class="platform"
+              *ngIf="'platformString' == val.key.valueOf() && val.value.valueOf() != undefined">Platform:
+              {{val.value}}</span>
+            <span class="released"
+              *ngIf="'release_date' == val.key.valueOf() && val.value.valueOf() != undefined">Release Date:
+              {{val.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div>
+    <span class="gameCount" *ngIf="gamesList.length > 0">Game Results: {{gamesList.length}}</span>
+    <div *ngFor="let item of gamesList; let i = index" class="game-card-display">
+      <div class="tester" *ngFor="let val of gamesList[i] | keyvalue">
+        <div>
+          <div class="gameName" *ngIf="'title' == val.key.valueOf()">
+            <span class="gameTitle">Game Name: {{ val.value }}</span>
+          </div>
+          <div class="gameCover" *ngIf="'cover_id' == val.key.valueOf()">
+            <img class="gameCoverImage" src="https://upload.wikimedia.org/wikipedia/en/a/a6/FIFA_23_Cover.jpg" alt="">
+          </div>
+          <div class="gameDetails">
+            <span class="genre" *ngIf="'genres' == val.key.valueOf() && val.value.valueOf() != undefined">Genre: {{val.value}}</span>
+            <span class="platform" *ngIf="'platforms' == val.key.valueOf() && val.value.valueOf() != undefined">Platform: {{val.value}}</span>
+            <span class="releaseDate" *ngIf="'release_date' == val.key.valueOf() && val.value.valueOf() != undefined">Release Date: {{val.value}}</span>
+            <span class="shortDescription" *ngIf="'summary' == val.key.valueOf() && val.value.valueOf() != undefined">Short Description: {{val.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <router-outlet />
+</body>
+
+</html>
